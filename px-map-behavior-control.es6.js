@@ -55,7 +55,7 @@
        */
       zoomInText: {
         type: String,
-        value: '<i class="fa fa-plus"></i>',
+        value: '<i class="fa fa-plus"></i>'
       },
 
       /**
@@ -66,7 +66,53 @@
        */
       zoomOutText: {
         type: String,
-        value: '<i class="fa fa-minus"></i>',
+        value: '<i class="fa fa-minus"></i>'
+      },
+
+      /**
+       * Sets the hover text for zoom in button
+       * This is not dynamic and can only be set at run time
+       *
+       * @type {String}
+       */
+      zoomInTitle: {
+        type: String,
+        value: 'Zoom in'
+      },
+
+      /**
+       * Sets the hover text for zoom out button
+       * This is not dynamic and can only be set at run time
+       *
+       * @type {String}
+       */
+      zoomOutTitle: {
+        type: String,
+        value: 'Zoom out'
+      },
+
+      /**
+       * Current language for app-localize-behavior
+       *
+       * @type {String}
+       */
+      language: {
+        type: String,
+        value: 'fr'
+      },
+
+      /**
+       * Localized strings for app-localize-behavior
+       *
+       * @type {Object}
+       */
+      resources: {
+        type: Object,
+        value: function() {
+          return { 'en': {'Zoom in': 'Zoom in', 'Zoom out': 'Zoom out' },
+                   'fr': {'Zoom in': 'Zoomeeeen', 'Zoom out': 'Zoomoooout' }
+                 };
+        }
       }
     },
 
@@ -85,12 +131,15 @@
       return {
         position: this.position,
         zoomInText: this.zoomInText,
-        zoomOutText: this.zoomOutText
+        zoomOutText: this.zoomOutText,
+        zoomInTitle: this.localize(this.zoomInTitle),
+        zoomOutTitle: this.localize(this.zoomOutTitle)
       };
     }
   };
   /* Bind ZoomControl behavior */
   namespace.ZoomControl = [
+    Polymer.AppLocalizeBehavior,
     namespace.Control,
     ZoomControlImpl
   ];
