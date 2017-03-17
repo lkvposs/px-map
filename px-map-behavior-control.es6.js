@@ -92,26 +92,34 @@
       },
 
       /**
-       * Current language for app-localize-behavior
+       * Current language for app-localize-behavior.
+       * Should be a valid IETF language tag (https://en.wikipedia.org/wiki/IETF_language_tag),
+       * such as 'en' (English), 'es' (Spanish), or 'zh-cn' (Simplified Chinese).
+       * See https://github.com/PolymerElements/app-localize-behavior for API and more information.
        *
        * @type {String}
        */
       language: {
         type: String,
-        value: 'fr'
+        value: 'en'
       },
 
       /**
-       * Localized strings for app-localize-behavior
+       * Object providing localized strings for app-localize-behavior.
+       * The first key should be a valid IETF language tag,
+       * followed by key/value pairs for each string you need to localize.
+       * Can also be loaded in a locales.json file.
+       * See https://github.com/PolymerElements/app-localize-behavior for API and more information.
        *
        * @type {Object}
        */
       resources: {
         type: Object,
         value: function() {
-          return { 'en': {'Zoom in': 'Zoom in', 'Zoom out': 'Zoom out' },
-                   'fr': {'Zoom in': 'Zoomeeeen', 'Zoom out': 'Zoomoooout' }
-                 };
+          return {
+            'en': { 'Zoom in': 'Zoom in', 'Zoom out': 'Zoom out' },
+            'de': { 'Zoom in': 'Zoomen', 'Zoom out': 'Rauszoomen' }
+          };
         }
       }
     },
