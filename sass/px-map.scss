@@ -159,7 +159,8 @@
   margin-bottom: $inuit-base-spacing-unit--tiny;
 
   &:hover {
-    background-color: var(--px-map-control-button-background, $gray3);
+    background-color: var(--px-map-control-button-background-hover, $gray3);
+    color: var(--px-map-control-button-text-color-hover, $primary-blue-hover);
   }
 }
 
@@ -173,12 +174,12 @@
 
 // MAP CONTROL: LOCATE
 
-.leaflet-bar.leaflet-control.leaflet-control-locate {
+.leaflet-control-locate {
   border: none;
   border-radius: 0;
   box-shadow: none;
 }
-.leaflet-bar.leaflet-control.leaflet-control-locate {
+.leaflet-control-locate {
   a.leaflet-control-locate-button {
     @extend %map-control-button;
     position: relative;
@@ -193,7 +194,12 @@
 a.leaflet-control-locate-button {
   &.leaflet-control-locate-button--locating {}
   &.leaflet-control-locate-button--error {}
-  &.leaflet-control-locate-button--disabled {}
+  &.leaflet-control-locate-button--disabled {
+    color: $gray4;
+    cursor: not-allowed;
+    pointer-events: none;
+    border-color: rgba($gray7, 0.3);
+  }
 }
 
 // Locate followed by zoom OR zoom followed by locate should have a negative
@@ -206,12 +212,12 @@ a.leaflet-control-locate-button {
 
 // MAP CONTROL: ZOOM
 
-.leaflet-bar.leaflet-control.leaflet-control-zoom {
+.leaflet-control-zoom {
   border: none;
   border-radius: 0;
   box-shadow: none;
 }
-.leaflet-bar.leaflet-control.leaflet-control-zoom {
+.leaflet-control-zoom {
   a.leaflet-control-zoom-in,
   a.leaflet-control-zoom-out {
     @extend %map-control-button;
