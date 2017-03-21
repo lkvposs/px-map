@@ -389,10 +389,8 @@
       /* Bind map events */
       L.DomEvent.on(map, 'locationfound', L.DomEvent.stop);
       L.DomEvent.on(map, 'locationfound', this._locationFound, this);
-      // map.on('locationfound', this._locationFound, this);
       L.DomEvent.on(map, 'locationerror', L.DomEvent.stop);
       L.DomEvent.on(map, 'locationerror', this._locationError, this);
-      // map.on('locationerror', this._locationError, this);
 
       /* Bind button events */
       L.DomEvent.disableClickPropagation(this.__locateButton);
