@@ -3,16 +3,44 @@
 
   <template>
     <div id="panel-container">
-      <div class="config-panel-toggle">      
-        <i class="fa fa-pencil-square-o fa-3x"></i>
+      <div class="config-panel-toggle" on-click="_toggleConfigPanel">      
+        <i class="fa fa-pencil-square-o fa-3x panel-toggle-button" id="configPanelButton"></i>
+
+        <div class="panel-popup" id="popupConfigPanel">
+          <div class="popup-content">
+            <h1>px-map Config</h1>
+            <ul>
+              <li>Sample Element 1</li>
+              <li>Sample Element 2</li>
+              <li>Sample Element 3</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </template>
 
   <style>
-    .config-panel-toggle {
-      margin: 5px;
+    #panel-container {
+      position: relative;
+      cursor: pointer;
     }
+    .panel-toggle {
+      margin: 5px;
+      position: absolute;
+      display: block;
+    }
+    .panel-popup {
+      display: none;
+      width: 200px;
+      height: 200px;
+      margin: 5px;
+      background-color: rgba(255, 255, 256, 0.7);
+      position: absolute;
+    }
+    .popup-content {
+      margin-left: 10px;
+      margin-right: 10px;
     }
   </style>
 </dom-module>
@@ -35,7 +63,26 @@
     
     ready: function () {
       let self = this;
+      let configPanelButton = self.$.configPanelButton;
+      configPanelButton.style.display = "block";
     },
+
+    _toggleConfigPanel: function() {
+      let popupConfigPanel = this.$.popupConfigPanel;
+      this._showHideElement(popupConfigPanel);
+
+      let configPanelButton = this.$.configPanelButton;
+      this._showHideElement(configPanelButton);
+    },
+
+    _showHideElement: function(element) {
+      if (element.style.display === "none" || element.style.display === "" || element.style.display === null) {
+        element.style.display = "block";
+      }
+      else if (element.style.display === "block") {
+        element.style.display = "none";
+      }
+    }
 
     
 
