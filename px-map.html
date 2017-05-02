@@ -11,6 +11,7 @@
 <!-- Import style modules -->
 <link rel="import" href="css/px-map-leaflet-styles.html">
 <link rel="import" href="css/px-map-styles.html">
+<link rel="import" href="components/config-panel.html">
 
 <!--
 `px-map` is a lightweight framework for building interactive maps with web
@@ -142,7 +143,7 @@ Leaflet, while keeping the same basic API.
         position: relative;
       }
       :host #map {
-        position: absolute;
+        position: relative;
         width: 100%;
         height: 100%;
       }
@@ -154,8 +155,16 @@ Leaflet, while keeping the same basic API.
       :host([flex-to-size]) #map {
         flex: 1;
       }
+      #panel {
+        position: absolute;
+        z-index: 1000;
+      }
     </style>
-    <div id="map"></div>
+    <div id="map">
+      <div id="panel">
+        <config-panel></config-panel>
+      </div>
+    </div>
     <content select="*"></content>
   </template>
 </dom-module>

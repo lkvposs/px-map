@@ -1,0 +1,43 @@
+<dom-module id="config-panel">
+  <link rel="import" type="css" href="bower_components/font-awesome/css/font-awesome.min.css"/>
+
+  <template>
+    <div id="panel-container">
+      <div class="config-panel-toggle">      
+        <i class="fa fa-pencil-square-o fa-3x"></i>
+      </div>
+    </div>
+  </template>
+
+  <style>
+    .config-panel-toggle {
+      margin: 5px;
+    }
+    }
+  </style>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'config-panel',
+    properties: {
+      context: {
+        type: Object,
+        notify: true,
+        reflectToAttribute: true
+      },
+      data: {
+        type: Object,
+        notify: true,
+        reflectToAttribute: true
+      }
+    },
+    
+    ready: function () {
+      let self = this;
+    },
+
+    
+
+  });
+</script>
